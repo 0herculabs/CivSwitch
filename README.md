@@ -1,7 +1,7 @@
 # CivSwitch
 
 XSS toolchain for the Switch 1 edition of Civilization 7.  
-Only the **1.0.0** version of the game is supported — the exploit offsets, save template, and stager layout are all version-specific.  
+Only the **1.0.0** version of the game in physical cartridge is supported.  
 
 Two components:
 
