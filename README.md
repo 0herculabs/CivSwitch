@@ -23,7 +23,9 @@ Two components:
 
 1. **Build + flash** the loader UF2 (see PicoSwitch/README.md).
 
-   On the Switch, change system language to English(US).  
+   On the Switch, go to "System" menu and change system language to English(US).  
+   Go to "Controllers & Accessories" menu and change USB Keyboard to English(US).  
+   Connect to Internet using [90DNS](https://gitlab.com/a/90dns) to block Nintendo servers.  
    Then launch game and navigate main menu -> MULTIPLAYER -> WIRELESS -> CREATE GAME -> HOST LOBBY -> CHAT then plug the Pico in (in docked mode, focus the chat box first to receive Pico input).  
 
    The Pico types the chat XSS (~87 lines, ~15 min); the Remote JS Loader comes up on the console (TCP :9026) for that session.  
