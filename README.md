@@ -1,16 +1,16 @@
 # CivSwitch
 
-XSS toolchain for the Switch 1 edition of Civilization 7.
-Only the **1.0.0** version of the game is supported — the exploit offsets, save template, and stager layout are all version-specific.
+XSS toolchain for the Switch 1 edition of Civilization 7.  
+Only the **1.0.0** version of the game is supported — the exploit offsets, save template, and stager layout are all version-specific.  
 
 Two components:
 
-- **PicoSwitch/** — clean, compilable Pico firmware (RP2040 + RP2350) that types a chat-XSS payload into the Switch (USB HID macro).
+- **PicoSwitch** — clean, compilable Pico firmware (RP2040 + RP2350) that types a chat-XSS payload into the Switch (USB HID macro).
 
   Default payload = the Remote JS Loader bootstrap (exploit core + TCP loader).
 
   Ships with `compress.js` (chat transport: terser -> deflateRaw -> base-25 chunked `img/onerror` lines with censor armor).
-- **installer-creator/** — given any JavaScript payload, produces the boot-persistent installer (`XSTRIG.Civ7Save` trigger written to savedata) to send through the Remote JS Loader.
+- **installer-creator** — given any JavaScript payload, produces the boot-persistent installer (`XSTRIG.Civ7Save` trigger written to savedata) to send through the Remote JS Loader.
 
 ## Layout
 
@@ -20,13 +20,13 @@ Two components:
 
 1. **Build + flash** the loader UF2 (see PicoSwitch/README.md).
 
-   On the Switch, change system language to English(US). 
-   Then launch game and navigate main menu -> MULTIPLAYER -> WIRELESS -> CREATE GAME -> HOST LOBBY -> CHAT then plug the Pico in (in docked mode, focus the chat box first to receive Pico input). 
+   On the Switch, change system language to English(US).  
+   Then launch game and navigate main menu -> MULTIPLAYER -> WIRELESS -> CREATE GAME -> HOST LOBBY -> CHAT then plug the Pico in (in docked mode, focus the chat box first to receive Pico input).  
 
-   The Pico types the chat XSS (~87 lines, ~15 min); the Remote JS Loader comes up on the console (TCP :9026) for that session. 
+   The Pico types the chat XSS (~87 lines, ~15 min); the Remote JS Loader comes up on the console (TCP :9026) for that session.  
 2. **Install the persistent boot trigger** from the PC: `python installer-creator/install.py <console-ip>` — uploads the save template, splices the compressed payload into it on-console, wipes `save:/saves/Single/`, and writes the trigger.
-3. From then on, every boot: main menu -> Load Game -> the payload runs from savedata (and if the payload is the loader, :9026 is up at boot — and survives console sleep/wake). 
-4. You can revert system language after installer finished. 
+3. From then on, every boot: main menu -> Load Game -> the payload runs from savedata (and if the payload is the loader, :9026 is up at boot — and survives console sleep/wake).  
+4. You can revert system language after installer finished.  
 
 ## Sending payloads (`send_js.py`)
 
@@ -34,7 +34,7 @@ Two components:
 python send_js.py <console-ip> [port] file.js
 ```
 
-Sends a JS file as-is to the Remote JS Loader (default port 9026), then prints the log output the console streams back (read until close or timeout). Any script the loader supports can be sent this way — quick one-offs, probes, or `installer-creator`'s installer. The payload is not wrapped: if it uses top-level await, wrap it in your own async IIFE first.
+Sends a JS file as-is to the Remote JS Loader (default port 9026), then prints the log output the console streams back (read until close or timeout).  
 
 ## Build (Pico firmware)
 
