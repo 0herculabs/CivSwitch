@@ -32,7 +32,12 @@ Two components:
    These are required to type "English" letters (code) using USB keyboard.  
    (Higher fw might not need to change system language as they support typing english without language change)  
    
+   NOTE for JP-only Switch2 : 
+   1. If you have another Switch, you can connect the two consoles via local wireless multiplayer and plug the Pico on the other device, allowing it to send the payload over the network.  
+   2. If you're on a higher fw version (I'm not sure exact version), you can simply try plugging the Pico and see if it can type English text without changing the system language.  
+   
    Connect to Internet using [90DNS](https://gitlab.com/a/90dns) to block Nintendo servers.  
+   
    Then launch game and navigate main menu -> MULTIPLAYER -> WIRELESS -> CREATE GAME -> HOST LOBBY -> CHAT then plug the Pico in (in docked mode, focus the chat box first to receive Pico input).  
 
    The Pico types the chat XSS (~87 lines, ~15 min); the Remote JS Loader comes up on the console (TCP :9026) for that session.  
