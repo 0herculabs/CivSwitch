@@ -3,8 +3,9 @@
 XSS toolchain for the Switch 1 edition of Civilization 7.  
 Only the **1.0.0** version of the game in physical cartridge is supported.  
 
-Tested at Switch 1 fw 22.5.0, Switch 2 fw 20.4.0 and 23.0.1 using pi pico 2 (RP2350)  
-pi pico 1 (RP2040) is untested.  
+Every switch 1/2 firmware 20.x.x and up to current version (23.0.1) should work.  
+
+Tested at Switch 1 fw 22.5.0, Switch 2 fw 20.4.0 and 23.0.1  
 
 Two components:
 
