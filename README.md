@@ -22,6 +22,8 @@ Two components:
 
 ## Workflow
 
+[Video Tutorial](https://www.reddit.com/r/switch2hacks/comments/1xll4wf/civswitch_hack_start_to_finish/) from switch2hacks reddit
+
 1. **Build + flash** the loader UF2 (see PicoSwitch/README.md).
 
    On the Switch, go to "System" menu and change system language to English(US).  
