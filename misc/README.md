@@ -8,7 +8,13 @@ It should also work on the JP Switch 2.
 
 **Setup:**
 
-Just like with a romfs mod, replace `screen-mp-chat.js` in:  
+The full modified file is not shipped here (it contains the game's original code) - only the changes: `screen-mp-chat.patch`. Apply it to the pristine file from your own game dump:
+
+```
+patch -p1 < screen-mp-chat.patch   # in the romfs dump root, patches Base/modules/core/ui/mp-chat/screen-mp-chat.js
+```
+
+Then, just like with a romfs mod, replace `screen-mp-chat.js` in:  
 
 `romfs:/Base/modules/core/ui/mp-chat`  
 
